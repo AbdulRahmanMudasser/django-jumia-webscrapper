@@ -1,11 +1,26 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Scrapping</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <h1>Scrape Website</h1>
+    <div id="main">
+        <h1>Scrape Website</h1>
+
+        <form action="" method="get">
+            <div>
+                <label for="product"></label>
+                <input type="text" name="product" id="product" placeholder="Enter Product Name" value="{{request.GET.product}}">
+            </div>
+    
+            <input type="submit" value="Search">
+        </form>
+    </div>
 </body>
 </html>
