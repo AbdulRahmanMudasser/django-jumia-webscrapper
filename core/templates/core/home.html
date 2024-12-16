@@ -21,6 +21,12 @@
     
             <input type="submit" value="Search">
         </form>
+
+        {% if product_info_list %}
+            {% for product_info in product_info_list %}
+                <p>{{product_info.name}}</p>
+            {% endfor %}
+        {% endif %}
     </div>
 </body>
 </html>
