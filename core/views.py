@@ -1,5 +1,5 @@
-from django.shortcuts import render
 import requests
+from django.shortcuts import render
 from bs4 import BeautifulSoup
     
 def get_content(product):
@@ -18,7 +18,7 @@ def get_content(product):
             'Upgrade-Insecure-Requests': '1',
         })
 
-        response = session.get(f'https://www.jumia.com.ng/catalog/?q={product}', timeout=10)  # Add `proxies=proxies` if needed
+        response = session.get(f'https://www.jumia.com.ng/catalog/?q={product}', timeout=10)
         response.raise_for_status()
 
         return response.text
