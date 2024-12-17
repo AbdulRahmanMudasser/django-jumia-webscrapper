@@ -1,27 +1,6 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
-
-# def get_content(product):
-#     USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/437.36"
-#     LANGUAGE = "en-US,en;q-0.5"
-    
-#     try:
-#         session = requests.Session()
-    
-#         session.headers['User-Agent'] = USER_AGENT
-#         session.headers['Accept-Language'] = LANGUAGE 
-#         session.headers['Content-Language'] = LANGUAGE 
-        
-#         response = session.get(f'https://www.jumia.com.ng/catalog/?q={product}')
-        
-#         response.raise_for_status()
-        
-#         return response.text
-#     except requests.RequestException as e:
-#         print(f'Error Fetching Data: {e}')
-        
-#         return None
     
 def get_content(product):
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -40,13 +19,13 @@ def get_content(product):
         })
 
         response = session.get(f'https://www.jumia.com.ng/catalog/?q={product}', timeout=10)  # Add `proxies=proxies` if needed
-        response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
+        response.raise_for_status()
 
         return response.text
     except requests.RequestException as e:
-        print(f"Error fetching data: {e}")
+        print(f"Error Fetching Data: {e}")
+        
         return None
-
 
 def home(request):
     product_info_list = []
